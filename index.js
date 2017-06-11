@@ -4,12 +4,12 @@ var Twit = require('twit');
 
 var config = require('./config');
 var T = new Twit(config);
-
+var r=0;
 // Setting up a user stream
 var stream = T.stream('user');
 
 tweetpost();
-setInterval(tweetpost, 1000*20);
+setInterval(tweetpost, 1000*60);
 // Anytime someone follows me
 stream.on('follow', followed);
 
@@ -41,8 +41,8 @@ function tweetIt(txt) {
 
 function tweetpost() {
        
-	var r = Math.floor(Math.random()*100);
-
+	//var r = Math.floor(Math.random()*100);
+     r++;
 	var tweet = {
 	  status: 'random number ' + r + ' #chinnu_twitter_bot'
 	}
