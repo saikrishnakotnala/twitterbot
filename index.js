@@ -3,22 +3,22 @@ var Twit = require('twit');
  var config =require('./config');
 
 T = new Twit(config);
-
+tweetpost();
 
 var stream = T.stream('user');
 
-stream.on('follow',followed);
+//stream.on('follow',followed);
 
 function followed(eventMsg){
     console.log("follow event");
      
-    var fs=require('fs');
-    var json = JSON.stringify(eventMsg,null,2);
-    fs.writeFile("tweet.json",json);
+   // var fs=require('fs');
+   // var json = JSON.stringify(eventMsg,null,2);
+   // fs.writeFile("tweet.json",json);
     
     var name = eventMsg.source.name;
       var screenName = eventMsg.source.screen_name;
-   // tweetpost('.@' + screenName + ' thank you!!!!');
+   tweetpost('.@' + screenName + ' thank you!!!!');
 }
 
 
