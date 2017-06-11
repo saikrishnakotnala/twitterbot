@@ -44,7 +44,7 @@ function tweetpost() {
 	//var r = Math.floor(Math.random()*100);
      r++;
 	var tweet = {
-	  status: 'random number ' + r + ' #chinnu_twitter_bot'
+	  status: 'my tweet number ' + r + ' #chinnu_twitter_bot'
 	}
 
 	T.post('statuses/update', tweet, tweeted);
