@@ -8,6 +8,8 @@ var T = new Twit(config);
 // Setting up a user stream
 var stream = T.stream('user');
 
+tweetpost();
+setInterval(tweetIt, 1000*40);
 // Anytime someone follows me
 stream.on('follow', followed);
 
@@ -23,6 +25,26 @@ function tweetIt(txt) {
 
 	var tweet = {
 	  status: txt
+	}
+
+	T.post('statuses/update', tweet, tweeted);
+
+	function tweeted(err, data, response) {
+	  if (err) {
+	  	console.log("Something went wwrong!");
+	  } else {
+	    console.log("It worked!");
+	  }
+	}
+}
+
+
+function tweetpost() {
+       
+	var r = Math.floor(Math.random()*100);
+
+	var tweet = {
+	  status: 'random number ' + r + ' #chinnu_twitter_bot'
 	}
 
 	T.post('statuses/update', tweet, tweeted);
